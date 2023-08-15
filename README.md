@@ -23,6 +23,20 @@ creates a rail to lock pcb covers in place
 * `pcb_count` = count of pcb covers to lock
 * `height` = height of the lock
 
+## Instructions
+First things first. Plastic can melt or even burn. Take care using electronics and 3D prints, just for low power projects!
+
+I tested printing on Ender 3v2 with Sprite Extruder.
+0.4mm Nozzle
+0.2mm Layer height
+PETG
+Nothing special needed.
+
+While working on a project I clamp the pcb covers and rails with M3 screws together. Later I use ordinary wood screws to mount the rails. Make sure to use washers!
+To be sure use a little glue for the pcb cover and the pcb. 
+
+[printables link](https://www.printables.com/de/model/553742-pcb-mount)
+
 ## TLDR
 Using large circuit boards is a no go for me as I have limited electronic/soldering skills. I keep messing things up.
 
