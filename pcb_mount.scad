@@ -1,4 +1,4 @@
-include <BOSL2/std.scad>
+// pcb_mount https://github.com/frbrno/pcb_mount
 
 // space between plug and jack for example
 clearence = 0.4;
@@ -47,9 +47,9 @@ info();
 // pcb_mount_cover();
 // pcb_mount_rail(pcb_count=1, conn_left = true, conn_right = true);
 // pcb_mount_rail(pcb_count=2, conn_left = false, conn_right = true);
-// pcb_mount_rail(pcb_count=3, conn_left = false, conn_right = false);
+// pcb_mount_rail(pcb_count=3, conn_left = false, conn_right = true);
 // pcb_mount_rail(pcb_count=4, conn_left = false, conn_right = false);
-
+// pcb_mount_rail_lock(pcb_count = 2, height = 1.4);
 // pcb_mount_rail(pcb_count = 2, conn_left = false, conn_right = true);
 
 module info()
@@ -231,7 +231,49 @@ module my_screw(h = 12, d = 4, head_d = 8, head_h = 3)
     down(h / 2 + 2 + 1) cylinder(h = h, d = d, center = true, $fn = 32);
 }
 
+// some helpers
+
 module cube_anchor(anchor = [ 0, 0, 0 ], x, y, z)
 {
     xmove(anchor[0] * (x / 2)) ymove(anchor[1] * (y / 2)) zmove(anchor[2] * (z / 2)) cube([ x, y, z ], center = true);
+}
+
+module ymove(y)
+{
+    translate([ 0, y, 0 ]) children();
+}
+
+module xmove(x)
+{
+    translate([ x, 0, 0 ]) children();
+}
+
+module left(x)
+{
+    translate([ x * -1, 0, 0 ]) children();
+}
+
+module right(x)
+{
+    translate([ x, 0, 0 ]) children();
+}
+
+module zmove(z)
+{
+    translate([ 0, 0, z ]) children();
+}
+
+module up(z)
+{
+    translate([ 0, 0, z ]) children();
+}
+
+module down(z)
+{
+    translate([ 0, 0, z * -1 ]) children();
+}
+
+module zrot(z)
+{
+    rotate([ 0, 0, z ]) children();
 }
