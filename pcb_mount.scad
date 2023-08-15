@@ -43,14 +43,14 @@ rail_y = 2 * connector_y + 1.2;                    // do not change
 rail_z = rail_z_support + clearence + connector_z; // do not change
 
 // few examples:
-info();
+// info();
 // pcb_mount_cover();
 // pcb_mount_rail(pcb_count=1, conn_left = true, conn_right = true);
 // pcb_mount_rail(pcb_count=2, conn_left = false, conn_right = true);
 // pcb_mount_rail(pcb_count=3, conn_left = false, conn_right = true);
 // pcb_mount_rail(pcb_count=4, conn_left = false, conn_right = false);
-// pcb_mount_rail_lock(pcb_count = 2, height = 1.4);
 // pcb_mount_rail(pcb_count = 2, conn_left = false, conn_right = true);
+// pcb_mount_rail_lock(pcb_count = 3, height = 1.4)
 
 module info()
 {
@@ -137,7 +137,7 @@ module pcb_mount_rail_lock(pcb_count = 1, height = 1.4)
     {
         xmove(num * rail_x) difference()
         {
-            cube_anchor([ 0, 0, 1 ], rail_x, 2 * connector_y - 2 * clearence, height);
+            cube_anchor([ 0, 0, 1 ], rail_x, connector_y + 2 - 2 * clearence, height);
             pcb_mount_rail_screw_holes(pcb_count, num, false, false);
         }
     }
